@@ -23,16 +23,16 @@ let questions = [
     },{
         question : "What does CSS stand for?",
         imgSrc : "img/css.png",
-        choiceA : "Wrong",
-        choiceB : "Correct",
-        choiceC : "Wrong",
+        choiceA : "Code Standard Sample",
+        choiceB : "Cascading Style Sheets",
+        choiceC : "Codding Simple Style ",
         correct : "B"
     },{
         question : "What does JS stand for?",
         imgSrc : "img/js.png",
-        choiceA : "Wrong",
-        choiceB : "Wrong",
-        choiceC : "Correct",
+        choiceA : "Javas Style",
+        choiceB : "Jumping Style ",
+        choiceC : "Java Script",
         correct : "C"
     }
 ];
@@ -92,7 +92,9 @@ function renderCounter(){
         if(runningQuestion < lastQuestion){
             runningQuestion++;
             renderQuestion();
-        }else{
+        }
+        else{
+
             // end the quiz and show the score
             clearInterval(TIMER);
             scoreRender();
