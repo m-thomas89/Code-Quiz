@@ -1,7 +1,8 @@
-# Multiple-Choice-Quiz-JavaScript
-Today we're going to create a multiple choice quiz using JavaScript, in this quiz, the user will have to choose the correct answer out of three choices, in less than 10 seconds, if the user didn't answer the question in 10sec, it will go to the next question automatically, and the question is marked wrong. the user has a progress bar, that shows the total number of question, and also if the user answered a question correctly or not.
+Created a quiz using Javascript.
 
-Watch The Tutorial On Youtube: 
-https://www.youtube.com/watch?v=49pYIMygIcU
+Had an HTML file where i first had the initial code
 
+The CSS file was used to style the quiz
+
+The javascript was use for everything else. 
 
