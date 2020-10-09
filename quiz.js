@@ -1,4 +1,4 @@
-// select all elements
+// Select and name all of the constants used and store them up here
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
@@ -11,9 +11,17 @@ const timeGauge = document.getElementById("timeGauge");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
 
-// create our questions
+// Im going to create the questions and answers
 let questions = [
     {
+        question : "What does JS stand for?",
+        imgSrc : "img/js.png",
+        choiceA : "Javas Style",
+        choiceB : "Jumping Style ",
+        choiceC : "Java Script",
+        correct : "C"
+        
+    },{
         question : "What does HTML stand for?",
         imgSrc : "img/html.png",
         choiceA : "Hpertext Markup Language",
@@ -27,17 +35,10 @@ let questions = [
         choiceB : "Cascading Style Sheets",
         choiceC : "Codding Simple Style ",
         correct : "B"
-    },{
-        question : "What does JS stand for?",
-        imgSrc : "img/js.png",
-        choiceA : "Javas Style",
-        choiceB : "Jumping Style ",
-        choiceC : "Java Script",
-        correct : "C"
     }
 ];
 
-// create some variables
+// Create variables to control quiz
 
 const lastQuestion = questions.length - 1;
 let runningQuestion = 0;
@@ -48,7 +49,7 @@ const gaugeUnit = gaugeWidth / questionTime;
 let TIMER;
 let score = 0;
 
-// render a question
+// Use the render the question function
 function renderQuestion(){
     let q = questions[runningQuestion];
     
@@ -61,7 +62,7 @@ function renderQuestion(){
 
 start.addEventListener("click",startQuiz);
 
-// start quiz
+// Start timer and the quiz
 function startQuiz(){
     start.style.display = "none";
     renderQuestion();
@@ -71,14 +72,14 @@ function startQuiz(){
     TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 }
 
-// render progress
+// Use render the progress function
 function renderProgress(){
     for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
 }
 
-// counter render
+
 
 function renderCounter(){
     if(count <= questionTime){
@@ -87,7 +88,8 @@ function renderCounter(){
         count++
     }else{
         count = 0;
-        // change progress color to red
+
+// Chnage to red when wrong
         answerIsWrong();
         if(runningQuestion < lastQuestion){
             runningQuestion++;
@@ -95,24 +97,21 @@ function renderCounter(){
         }
         else{
 
-            // end the quiz and show the score
+// show the scre at the end whenfinished 
             clearInterval(TIMER);
             scoreRender();
         }
     }
 }
 
-// checkAnwer
+// Check the Anwer
 
 function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
-        // answer is correct
         score++;
-        // change progress color to green
         answerIsCorrect();
     }else{
-        // answer is wrong
-        // change progress color to red
+      
         answerIsWrong();
     }
     count = 0;
@@ -120,7 +119,6 @@ function checkAnswer(answer){
         runningQuestion++;
         renderQuestion();
     }else{
-        // end the quiz and show the score
         clearInterval(TIMER);
         scoreRender();
     }
